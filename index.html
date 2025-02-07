@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RaDev</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <h3><a href="Infix.c" download>1</a></h3>
+            <button onclick="copyFileContent('Infix.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="Postfix.c" download>2</a></h3>
+            <button onclick="copyFileContent('Postfix.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="3.c" download>3</a></h3>
+            <button onclick="copyFileContent('3.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="4.c" download>4</a></h3>
+            <button onclick="copyFileContent('4.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="5.c" download>5</a></h3>
+            <button onclick="copyFileContent('5.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="6.c" download>6</a></h3>
+            <button onclick="copyFileContent('6.c')">Copy</button>
+        </li>
+        <li>
+            <h3><a href="7.c" download>7</a></h3>
+            <button onclick="copyFileContent('7.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="8.c" download>8</a></h3>
+            <button onclick="copyFileContent('8.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="9a.c" download>9a</a></h3>
+            <button onclick="copyFileContent('9a.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="9b.c" download>9b</a></h3>
+            <button onclick="copyFileContent('9b.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="10a.c" download>10a</a></h3>
+            <button onclick="copyFileContent('10a.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="10b.c" download>10b</a></h3>
+            <button onclick="copyFileContent('10b.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="11a.c" download>11a</a></h3>
+            <button onclick="copyFileContent('11a.c')">Copy</button>
+        </li>
+      <li>
+            <h3><a href="11b.c" download>11b</a></h3>
+            <button onclick="copyFileContent('11b.c')">Copy</button>
+        </li>
+    </ul>
+
+    <script>
+        // Function to fetch and copy file content
+        async function copyFileContent(filename) {
+            try {
+                // Fetch the file content
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch ${filename}`);
+                }
+                const text = await response.text();
+
+                // Copy the content to the clipboard
+                await navigator.clipboard.writeText(text);
+                alert(`Content of ${filename} copied to clipboard!`);
+            } catch (error) {
+                console.error("Error copying file content:", error);
+                alert("Failed to copy file content. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
